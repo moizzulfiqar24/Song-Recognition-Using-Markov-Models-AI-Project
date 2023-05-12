@@ -93,7 +93,7 @@ def start_recording_and_recognize_song():
     recorded_audio = record_audio(duration, sample_rate)
 
     preprocessed_audio = preprocess_audio(recorded_audio)
-    audio_features = extract_audio_features(preprocessed_audio, sample_rate)  # Use 'sample_rate' here
+    audio_features = extract_audio_features(preprocessed_audio, sample_rate)  
 
     mic_input_data = {
         "title": "Microphone Input",
@@ -108,7 +108,7 @@ def start_recording_and_recognize_song():
     # Read the CSV file
     mic_features_df = pd.read_csv("mic_features.csv")
 
-    n = 3  # You can experiment with the 'n' value to improve the model
+    n = 3 
     recognized_title, recognized_artist = recognize_song(mic_features_df, song_markov_models, n)
 
     if recognized_title and recognized_artist:
